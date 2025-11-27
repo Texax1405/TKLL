@@ -2,6 +2,7 @@
 #include "blink.h"
 #include "temp_humid_sensor.h"
 #include "monitor_update.h"
+#include "soil_sensor.h"
 
 
 void setup()
@@ -20,7 +21,7 @@ void setup()
   xTaskCreate(led_blinky, "Task LED", 2048, NULL, 1, NULL);
   xTaskCreate(temp_humid_sensor, "Task DHT", 4096, NULL, 1, NULL);
   xTaskCreate(monitor_update, "Task Printing", 2048, NULL, 1, NULL);
-
+  xTaskCreate(soil_sensor, "Task Soil Sensor", 4096, NULL, 1, NULL);
 }
 
 void loop() {}
